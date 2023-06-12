@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Grid of Items</title>
-    <style>
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            grid-gap: 10px;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .grid-item {
-            border: 1px solid black;
-            padding: 10px;
-            text-align: center;
-        }
-    </style>
+    <title>Main Page</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="grid-container" class="grid-container">
-        <!-- Items will be inserted here -->
+    <div class="main-container">
+        <img id="logo" src="logo.png" alt="Logo">
+        <h1>Welcome to <i>EYP Spy!</i></h1>
+        <p>Select a pack:</p>
+        <select id="pack-select">
+            <option value="defult.json">Default</option>
+            <!-- Add more options corresponding to other packs as needed -->
+            <option value="pack1.json">Pack 1</option>
+            <option value="pack2.json">Pack 2</option>
+        </select>
+        <button id="play-button" class="button button-blue">Play</button>
     </div>
+
+    <footer>
+        <p>Created by <a href="https://miketsak.gr" target="_blank">MikeTsak</a></p>
+    </footer>
 
     <script src="main.js"></script>
 </body>

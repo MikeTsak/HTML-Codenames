@@ -30,6 +30,27 @@ window.addEventListener('DOMContentLoaded', (event) => {
             // Generate a random index to pick an item from the JSON array
             const randomIndex = Math.floor(random[i] * data.length);
             item.textContent = data[randomIndex];
+
+            const color = item.dataset.color;
+            switch(color) {
+                case 'Red':
+                    item.style.backgroundColor = '#be1200';
+                    item.style.color = '#f5f5f5';
+                    break;
+                case 'Blue':
+                    item.style.backgroundColor = '#0000be';
+                    item.style.color = '#f5f5f5';
+                    break;
+                case 'Bystander':
+                    item.style.backgroundColor = '#bdb5b5';
+                    item.style.color = 'black';
+                    break;
+                case 'Black':
+                    item.style.backgroundColor = 'black';
+                    item.style.color = '#f5f5f5';
+                    break;
+            }
+
             container.appendChild(item);
         }
 
@@ -48,29 +69,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
         //     redButtonClicked = false; // reset the other flags
         // });
 
-        container.addEventListener('click', event => {
-            if(event.target.classList.contains('grid-item')) {
-                const color = event.target.dataset.color;
-                switch(color) {
-                    case 'Red':
-                        event.target.style.backgroundColor = '#be1200';
-                        event.target.style.color = '#f5f5f5';
-                        break;
-                    case 'Blue':
-                        event.target.style.backgroundColor = '#0000be';
-                        event.target.style.color = '#f5f5f5';
-                        break;
-                    case 'Bystander':
-                        event.target.style.backgroundColor = '#bdb5b5';
-                        event.target.style.color = 'black';
-                        break;
-                    case 'Black':
-                        event.target.style.backgroundColor = 'black';
-                        event.target.style.color = '#f5f5f5';
-                        break;
-                }
-            }
-        });
     });
    
 });

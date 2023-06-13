@@ -71,3 +71,23 @@ body {
     background-color: #00539C;
     color: white;
 }
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: #FFC8A2;
+}
+
+footer a {
+    color: #3B3561;
+    text-decoration: none;
+}
+.first-player {
+    text-align: center;
+    font-size: 2em;
+    color: #3B3561;
+    margin-bottom: 20px;
+}

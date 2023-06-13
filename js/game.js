@@ -136,6 +136,9 @@ const chechPack = () => {
         return 'https://raw.githubusercontent.com/MikeTsak/HTML-Codenames/main/packs/starwars.json'}
         else if(fragment === '#5'){
         return 'https://raw.githubusercontent.com/MikeTsak/HTML-Codenames/main/packs/greekhistory.json'}
+        else if(fragment === '#6'){
+        return 'https://raw.githubusercontent.com/MikeTsak/HTML-Codenames/main/packs/disney.json'}
+        
     }
 
 function getRandomSequenceWithSeed(seed, length) {

@@ -75,14 +75,22 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
 const chechPack = () => {
-        // Get the pack name from localStorage
-        var fragment = window.location.hash;
-        console.log(fragment);
-        fragment = fragment.split('-')[0];
-        if(fragment === '#1'){
-        return 'https://raw.githubusercontent.com/MikeTsak/HTML-Codenames/main/packs/defult.json'}
-        else if(fragment === '#2'){
-        return 'https://raw.githubusercontent.com/MikeTsak/HTML-Codenames/main/packs/greek.json'}
+    // Get the pack name from localStorage
+    var fragment = window.location.hash;
+    console.log(fragment);
+    fragment = fragment.split('-')[0];
+    if(fragment === '#1'){
+    return 'https://raw.githubusercontent.com/MikeTsak/HTML-Codenames/main/packs/defult.json'}
+    else if(fragment === '#2'){
+    return 'https://raw.githubusercontent.com/MikeTsak/HTML-Codenames/main/packs/greek.json'}
+    else if(fragment === '#3'){
+    return 'https://raw.githubusercontent.com/MikeTsak/HTML-Codenames/main/packs/marvel.json'}
+    else if(fragment === '#4'){
+    return 'https://raw.githubusercontent.com/MikeTsak/HTML-Codenames/main/packs/starwars.json'}
+    else if(fragment === '#5'){
+    return 'https://raw.githubusercontent.com/MikeTsak/HTML-Codenames/main/packs/greekhistory.json'}
+    else if(fragment === '#6'){
+    return 'https://raw.githubusercontent.com/MikeTsak/HTML-Codenames/main/packs/disney.json'}
     }
 
 function getRandomSequenceWithSeed(seed, length) {

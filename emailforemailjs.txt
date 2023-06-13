@@ -1,0 +1,26 @@
+⚠️Key Card! For Spy Masters Only⚠️
+(Don't show this one to your teammates)
+
+ 
+
+You are a Spy Master! Use the info below to win the game.
+
+
+Click Here to the see the Key Card --> link: https://miketsak.gr/projects/spy/solution.html#{{gameid}}
+
+
+Key Card made with emojis:
+
+{{table1}}
+
+{{table2}}
+
+{{table3}}
+
+{{table4}}
+
+{{table5}}
+
+Thanks for playing,
+Mike
+                ⌛

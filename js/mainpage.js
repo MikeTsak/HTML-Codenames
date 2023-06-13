@@ -1,3 +1,5 @@
+emailjs.init("-iX3QP9LGAX_sIWEh");
+
 document.getElementById('play-button').addEventListener('click', () => {
     const selectedPack = document.getElementById('pack-select').value;
     //make a random number
@@ -30,21 +32,25 @@ const player = () => {
 
 function sendEmail(to, id) {
     var subject = "EYP Spy Master"
-    var message = email1 + id + email2;
+    // var gameid = email1 + id + email2;
+    gameid = '1-0.03489599270465482-Blue-0.4684129801135253';
+    message = "🍎🍎🍎🍎🍎    🍎🍎🍎🍎🍎    🍎🍎🍎🍎🍎    🍎🍎🍎🍎🍎    🍎🍎🍎🍎🍎             🍎"
 
+    var templateParams = {
+        to_email: to,
+        subject: subject,
+        gameid: gameid,
+        message: message
+    };
 
-    // Send AJAX request
-    $.ajax({
-        url: 'send_email.php',
-        type: 'POST',
-        data: {to: to, subject: subject, message: message},
-        success: function(response) {
-            alert(response);
-        },
-        error: function(xhr, status, error) {
-            console.log(error);
-        }
-    });
+    emailjs.send("service_nngrdus", "template_rpgvlg6", templateParams)
+        .then(function (response) {
+            console.log("Email sent successfully!", response);
+            alert("Email sent successfully.");
+        }, function (error) {
+            console.error("Email sending failed:", error);
+            alert("Email sending failed. Please try again.");
+        });
 }
 
 function validateEmail(email) {

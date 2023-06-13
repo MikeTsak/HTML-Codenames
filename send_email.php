@@ -1,4 +1,6 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST");
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $to = $_POST['to'];
     $subject = $_POST['subject'];

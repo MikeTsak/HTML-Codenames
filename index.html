@@ -4,6 +4,7 @@
     <title>EYP Spy!</title>
     <link rel="stylesheet" href="css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="icon" href="img/logo.png">
 </head>
 <body>
@@ -19,7 +20,11 @@
             <option value="5">Greek History Special</option>
         </select>
         <br />
-        <button id="play-button" class="button button-blue">Play</button>
+        <label for="email">Enter your email to get the key card:</label>
+        <input type="email" id="email" name="email">
+        <p class="form-note">Your email will not be saved in any way.</p>
+        <br />
+        <button type="submit" id="play-button" class="button button-blue">Play</button>
     </div>
 
     <footer>

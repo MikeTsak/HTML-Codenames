@@ -15,7 +15,7 @@ const modalCloseSpan = document.getElementsByClassName('close')[0];
 const gameOverMessageEl = document.getElementById('gameOverMessage');
 
 modalCloseButton.onclick = function() {
-    modal.style.display = "none";
+    window.location.href = 'index.html'
 }
 
 modalCloseSpan.onclick = function() {
@@ -154,4 +154,46 @@ function player(x) {
         firstPlayerElement.style.color = '#be1200';
     }else{ firstPlayerElement.textContent = `Blue plays first`;
     firstPlayerElement.style.color = '#0000be';}
+}
+
+//  TIMER STAFF
+let intervalId = null;
+
+const startTimerButton = document.getElementById('startTimerButton');
+const timerDisplay = document.getElementById('timer');
+
+startTimerButton.addEventListener('click', resetAndStartTimer);
+
+function startTimer() {
+    let seconds = 0;
+    let minutes = 1;  // Set it to 59 for 60 minutes
+    timerDisplay.textContent = formatTime(minutes) + ':' + formatTime(seconds);
+    timerDisplay.classList.add('running');
+    intervalId = setInterval(function() {
+        seconds--;
+        if (seconds < 0) {
+            seconds = 59;
+            minutes--;
+        }
+        timerDisplay.textContent = formatTime(minutes) + ':' + formatTime(seconds);
+        if (minutes === 0 && seconds === 0) {
+            clearInterval(intervalId);
+            timerDisplay.classList.remove('running');
+        }
+    }, 1000);
+}
+
+function resetAndStartTimer() {
+    // If a timer is already running, clear it
+    if (intervalId) {
+        clearInterval(intervalId);
+        timerDisplay.classList.remove('running');
+    }
+
+    // Start the timer
+    startTimer();
+}
+
+function formatTime(time) {
+    return time < 10 ? '0' + time : time;
 }

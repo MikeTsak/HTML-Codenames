@@ -75,7 +75,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
         container.addEventListener('click', event => {
             if(event.target.classList.contains('grid-item')) {
+                        // Create and play the audio
+                new Audio('sound/blip-131856.mp3').play();
                 const color = event.target.dataset.color;
+
                 switch(color) {
                     case 'Red':
                         event.target.style.backgroundColor = '#be1200';
@@ -96,16 +99,19 @@ window.addEventListener('DOMContentLoaded', (event) => {
                         event.target.style.color = '#f5f5f5';
                         gameOverMessageEl.textContent = 'Game over!';
                         modal.style.display = "block";
+                        new Audio('sound/gameover-153314.mp3').play();
                         return;
                 }
             }
             if(redCount === 0) {
                 gameOverMessageEl.textContent = 'Red wins!';
                 modal.style.display = "block";
+                new Audio('sound/gameover-153314.mp3').play();
             }
             if(blueCount === 0) {
                 gameOverMessageEl.textContent = 'Blue wins!';
                 modal.style.display = "block";
+                new Audio('sound/gameover-153314.mp3').play();
             }
 
         });
@@ -178,6 +184,7 @@ function startTimer() {
         timerDisplay.textContent = formatTime(minutes) + ':' + formatTime(seconds);
         if (minutes === 0 && seconds === 0) {
             clearInterval(intervalId);
+            new Audio('sound/timer_alarm-123412.mp3').play();
             timerDisplay.classList.remove('running');
         }
     }, 1000);

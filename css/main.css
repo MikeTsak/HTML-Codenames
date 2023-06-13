@@ -98,3 +98,28 @@ input[type="email"] {
     }
   }
 
+  .content-container {
+    position: relative;
+}
+
+.instructions-button {
+    position: absolute;
+    top: 10px;  /* adjust as needed */
+    right: 10px; /* adjust as needed */
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #E40066;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.instructions-button:hover {
+    background-color: #C2005D;
+}
+
+

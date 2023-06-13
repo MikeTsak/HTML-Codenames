@@ -5,12 +5,14 @@ emailjs.init("-iX3QP9LGAX_sIWEh");
 document.getElementById('play-button').addEventListener('click', () => {
     const selectedPack = document.getElementById('pack-select').value;
     //make a random number
-    const playButton = document.getElementById('play-button');
-    playButton.innerHTML = '<div class="loading-spinner"></div>'; // Show loading spinner
-    playButton.disabled = true; // Disable the button
 
     const email = document.getElementById('email').value;
     if (validateEmail(email)) {
+        const playButton = document.getElementById('play-button');
+        playButton.innerHTML = '<div class="loading-spinner"></div>'; // Show loading spinner
+        playButton.disabled = true; // Disable the button
+        new Audio('sound/start-computeraif-14572.mp3').play();
+        
         const randomboard = Math.random();
         const randomkey = Math.random();
         const firstplayer = player();
@@ -73,6 +75,9 @@ function sendEmail(to, id, colors) {
         }, function (error) {
             console.error("Email sending failed:", error);
             alert("Email sending failed. Please try again.");
+            const playButton = document.getElementById('play-button');
+            playButton.innerHTML = 'Play'; // Show loading spinner
+            playButton.disabled = false; // Disable the button
         });
 }
 

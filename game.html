@@ -4,6 +4,7 @@
     <title>EYP Spy! - Game</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
     <link rel="icon" href="img/logo.png">
 </head>
 <body>
@@ -17,6 +18,26 @@
         <button class="button button-black" style="background-color: black;color: #f5f5f5;">Black Button</button>
         <button class="button button-blue" style="background-color: #0000be; color: #f5f5f5;">Blue Button</button>
     </div> -->
+
+
+    <!-- Win/ Lose Modal -->
+    <div class="modalparent">
+        <div id="gameOverModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Game Over</h2>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <p id="gameOverMessage"></p>
+                </div>
+                <div class="modal-footer">
+                    <button id="modalCloseButton" class="button button-blue">Main Menu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of winning/lose modal -->
 
 
     <footer>

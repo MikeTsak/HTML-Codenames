@@ -9,6 +9,25 @@ for (let i = colors.length - 1; i > 0; i--) {
     [colors[i], colors[j]] = [colors[j], colors[i]];
 }
 
+const modal = document.getElementById('gameOverModal');
+const modalCloseButton = document.getElementById('modalCloseButton');
+const modalCloseSpan = document.getElementsByClassName('close')[0];
+const gameOverMessageEl = document.getElementById('gameOverMessage');
+
+modalCloseButton.onclick = function() {
+    modal.style.display = "none";
+}
+
+modalCloseSpan.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
 window.addEventListener('DOMContentLoaded', (event) => {
 
     const giturl = chechPack();
@@ -19,6 +38,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
         const random = getRandomSequenceWithSeed(hash[1], data.length);
+
+        let redCount = 0;
+        let blueCount = 0;
 
         for(let i = 0; i < 25; i++){
             const item = document.createElement('div');
@@ -31,6 +53,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
             const randomIndex = Math.floor(random[i] * data.length);
             item.textContent = data[randomIndex];
             container.appendChild(item);
+
+            if(colors[i] === 'Red') redCount++;
+            if(colors[i] === 'Blue') blueCount++;
         }
 
         // let redButtonClicked = false;
@@ -55,10 +80,12 @@ window.addEventListener('DOMContentLoaded', (event) => {
                     case 'Red':
                         event.target.style.backgroundColor = '#be1200';
                         event.target.style.color = '#f5f5f5';
+                        redCount--;
                         break;
                     case 'Blue':
                         event.target.style.backgroundColor = '#0000be';
                         event.target.style.color = '#f5f5f5';
+                        blueCount--;
                         break;
                     case 'Bystander':
                         event.target.style.backgroundColor = '#bdb5b5';
@@ -67,9 +94,20 @@ window.addEventListener('DOMContentLoaded', (event) => {
                     case 'Black':
                         event.target.style.backgroundColor = 'black';
                         event.target.style.color = '#f5f5f5';
-                        break;
+                        gameOverMessageEl.textContent = 'Game over!';
+                        modal.style.display = "block";
+                        return;
                 }
             }
+            if(redCount === 0) {
+                gameOverMessageEl.textContent = 'Red wins!';
+                modal.style.display = "block";
+            }
+            if(blueCount === 0) {
+                gameOverMessageEl.textContent = 'Blue wins!';
+                modal.style.display = "block";
+            }
+
         });
     });
    

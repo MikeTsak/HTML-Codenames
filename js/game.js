@@ -114,6 +114,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 });
 
 
+
 const chechPack = () => {
         // Get the pack name from localStorage
         var fragment = window.location.hash;
@@ -155,7 +156,6 @@ function player(x) {
     }else{ firstPlayerElement.textContent = `Blue plays first`;
     firstPlayerElement.style.color = '#0000be';}
 }
-
 //  TIMER STAFF
 let intervalId = null;
 

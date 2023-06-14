@@ -17,15 +17,41 @@
             <!-- Meta Author -->
             <meta name="author" content="MikeTsak">
 
+            <!-- JavaScript Libraries -->
+            <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
             <!-- CSS and Fonts -->
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="css/style.css">
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     
     <link rel="icon" href="img/logo.png">
 </head>
 <body>
     <h2 id="first-player" class="first-player"></h2> <!-- Player that plays first -->
-    <button id="shareButton">Share key to spymaster</button>
+    <!-- Add this inside your HTML where you want the QR code to be displayed -->
+    <div id="qrModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" id="qrClose">&times;</span>
+                <h2>Scan this QR code</h2>
+            </div>
+            <div class="modal-body">
+                <div id="qrcode" class="qrcode"></div>
+            </div>
+            <div class="modal-footer">
+                <h3>or</h3>
+                <br /><br />
+                <button id="shareButton">Share Link</button>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Share Buttons -->
+    <div class="share-buttons">
+        <button id="qrcodeButton">Share Spy Master Key</button>
+    </div>
 
     <div id="grid-container" class="grid-container">
         <!-- Items will be inserted here -->
@@ -60,8 +86,8 @@
         <div id="gameOverModal" class="modal">
             <div class="modal-content">
                 <div class="modal-header">
+                    <span class="close" id="modalCloseSpan">&times;</span>
                     <h2>Game Over</h2>
-                    <span class="close">&times;</span>
                 </div>
                 <div class="modal-body">
                     <p id="gameOverMessage"></p>

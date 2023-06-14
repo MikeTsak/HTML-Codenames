@@ -3,6 +3,14 @@ hash = hash.split('-');
 player(hash[2]);
 const colors = Array(8).fill('Red').concat(Array(8).fill('Blue'), Array(7).fill('Bystander'), 'Black',hash[2]);
 
+let closeButtonElements = document.querySelectorAll('.close-button');
+
+closeButtonElements.forEach(function (button) {
+    button.onclick = function() {
+        modal.style.display = "none";
+    }
+});
+
 const random = getRandomSequenceWithSeed(hash[3], 75);
 for (let i = colors.length - 1; i > 0; i--) {
     const j = Math.floor(random[i] * (i + 1));
@@ -11,7 +19,7 @@ for (let i = colors.length - 1; i > 0; i--) {
 
 const modal = document.getElementById('gameOverModal');
 const modalCloseButton = document.getElementById('modalCloseButton');
-const modalCloseSpan = document.getElementsByClassName('close')[0];
+const modalCloseSpan = document.getElementById('modalCloseSpan');
 const gameOverMessageEl = document.getElementById('gameOverMessage');
 let redCountElement = document.getElementById('redCount');
 let blueCountElement = document.getElementById('blueCount');
@@ -89,9 +97,16 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
         container.addEventListener('click', event => {
             if(event.target.classList.contains('grid-item')) {
-                        // Create and play the audio
+                // Create and play the audio
+                if (event.target.dataset.clicked) {
+                    // If the item has been clicked already, do nothing and return
+                    return;
+                }
+                        // Set the clicked attribute to true
+                event.target.dataset.clicked = true;
                 new Audio('sound/blip-131856.mp3').play();
                 const color = event.target.dataset.color;
+
 
                 switch(color) {
                     case 'Red':
@@ -227,20 +242,58 @@ function formatTime(time) {
 }
 
 
-const shareButton = document.getElementById('shareButton');
+// Share link button
 
+
+const shareButton = document.getElementById('shareButton');
 shareButton.addEventListener('click', () => {
-    link = window.location.href 
-    link = link.replace('game.html', 'solution.html')
-  if (navigator.share) {
-    navigator.share({
-      title: 'Codename Game Key',
-      text: 'Here is the key to our game: ' + link,
-      url: link,
-    })
-    .then(() => console.log('Successful share'))
-    .catch((error) => console.log('Error sharing', error));
-  } else {
-    console.log('Share not supported on this browser, copy this link: ' + link);
-  }
+    let link = 'https://miketsak.gr/projects/spy/solution.html#' + window.location.hash;
+    if (navigator.share) {
+      navigator.share({
+        title: 'Codename Game Key',
+        text: 'Here is the key to our game: ' + link,
+        url: link,
+      })
+      .then(() => console.log('Successful share'))
+      .catch((error) => console.log('Error sharing', error));
+    } else {
+      console.log('Share not supported on this browser, copy this link: ' + link);
+    }
+  });
+
+
+// Show QR code button
+const qrcodeButton = document.getElementById('qrcodeButton');
+const qrcodeDiv = document.getElementById('qrcode');
+const qrModal = document.getElementById('qrModal');
+const qrClose = document.getElementById('qrClose');
+
+qrcodeButton.addEventListener('click', () => {
+    // Clear the div and create the QR code
+    qrcodeDiv.innerHTML = '';
+    let link = 'https://miketsak.gr/projects/spy/solution.html' + window.location.hash;
+    let qrcode = new QRCode(qrcodeDiv, {
+        text: link,
+        width: 128,
+        height: 128,
+        colorDark : "#000000",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+    });
+
+    // Show the modal
+    qrcodeDiv.classList.add('visible');
+    qrModal.style.display = "block";
 });
+
+// When the user clicks on <span> (x), close the modal
+qrClose.addEventListener('click', () => {
+    qrModal.style.display = "none";
+});
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == qrModal) {
+        qrModal.style.display = "none";
+    }
+}

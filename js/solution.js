@@ -9,6 +9,8 @@ for (let i = colors.length - 1; i > 0; i--) {
     [colors[i], colors[j]] = [colors[j], colors[i]];
 }
 
+let usedIndices = new Set();
+
 window.addEventListener('DOMContentLoaded', (event) => {
 
     const giturl = chechPack();
@@ -20,6 +22,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
         const random = getRandomSequenceWithSeed(hash[1], data.length);
 
+        let j = 25;
+
         for(let i = 0; i < 25; i++){
             const item = document.createElement('div');
             item.className = 'grid-item';
@@ -28,7 +32,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
             // console.log(random);
     
             // Generate a random index to pick an item from the JSON array
-            const randomIndex = Math.floor(random[i] * data.length);
+            let randomIndex = Math.floor(random[i] * data.length);
+
+            while (usedIndices.has(randomIndex)) {
+                // Redraw the random number if the index has been used
+                randomIndex = Math.floor(random[j] * data.length);
+                j++;
+            }
+            usedIndices.add(randomIndex);
             item.textContent = data[randomIndex];
 
             const color = item.dataset.color;

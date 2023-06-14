@@ -160,6 +160,35 @@ footer a {
     color: white;
 }
 
+/* Status Container */
+.status-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    max-width: 800px;   /* Same as .grid-container */
+    margin: 0 auto;     /* Center the status-container */
+    padding: 20px;      /* Same as .grid-container */
+    box-sizing: border-box; /* include padding and border in total width and height */
+}
+
+#redCountDisplay, #blueCountDisplay {
+    text-align: center;
+}
+
+#redCount, #blueCount {
+    font-size: 2em;
+    display: block;
+}
+
+#redCount {
+    color: #be1200;
+}
+
+#blueCount {
+    color: #0000be;
+}
+
 /*timer*/
 
 .timer-container {
@@ -214,6 +243,8 @@ footer a {
     transform: translateY(-3px);
     background-color: #FFC8A2;
 }
+
+/* Languege button */
 #language-button {
     font-size: 2em;
     position: absolute;

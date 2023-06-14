@@ -256,3 +256,24 @@ footer a {
   #language-button:hover {
     transform: scale(1.1);
   }
+
+  #shareButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    background-color: #FFC8A2;
+    color: white;
+    padding: 10px 20px;
+    margin: 10px auto;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 1px solid #E40066;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#shareButton:hover {
+    transform: translateY(-3px);
+    background-color: #FFB089;
+}

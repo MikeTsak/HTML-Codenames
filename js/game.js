@@ -225,3 +225,22 @@ function resetAndStartTimer() {
 function formatTime(time) {
     return time < 10 ? '0' + time : time;
 }
+
+
+const shareButton = document.getElementById('shareButton');
+
+shareButton.addEventListener('click', () => {
+    link = window.location.href 
+    link = link.replace('game.html', 'solution.html')
+  if (navigator.share) {
+    navigator.share({
+      title: 'Codename Game Key',
+      text: 'Here is the key to our game: ' + link,
+      url: link,
+    })
+    .then(() => console.log('Successful share'))
+    .catch((error) => console.log('Error sharing', error));
+  } else {
+    console.log('Share not supported on this browser, copy this link: ' + link);
+  }
+});

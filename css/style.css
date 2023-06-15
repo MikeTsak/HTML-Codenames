@@ -22,6 +22,8 @@ body {
     object-fit: contain;
     object-position: center;
     padding: 1px;
+    object-fit: cover;
+    pointer-events: none;
 }
 .grid-item {
     display: flex;

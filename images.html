@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EYP Spy! - Game</title>
+            <!-- Meta Charset -->
+            <meta charset="utf-8">
+    
+            <!-- Meta Description -->
+            <meta name="description" content="EYP Spy! - An exciting and strategic word game based on Codenames.">
+            
+            <!-- Meta Keywords -->
+            <meta name="keywords" content="EYP, Spy, Game, Strategy, Words, miketsak, μικετσακ, μιχαλης τσακιρογλου, mike tsakiroglou, michail tsakiroglou,EYP Spy">
+            
+            <!-- Meta Viewport -->
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+            <!-- Meta Author -->
+            <meta name="author" content="MikeTsak">
+
+            <!-- JavaScript Libraries -->
+            <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+            <!-- CSS and Fonts -->
+            <link rel="stylesheet" href="css/style.css">
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="img/logo.png">
+</head>
+<body>
+    <h2 id="first-player" class="first-player"></h2> <!-- Player that plays first -->
+    <!-- Add this inside your HTML where you want the QR code to be displayed -->
+    <div id="qrModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" id="qrClose">&times;</span>
+                <h2>Scan this QR code</h2>
+            </div>
+            <div class="modal-body">
+                <div id="qrcode" class="qrcode"></div>
+            </div>
+            <div class="modal-footer">
+                <h3>or</h3>
+                <br /><br />
+                <button id="shareButton">Share Link</button>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Share Buttons -->
+    <div class="share-buttons">
+        <button id="qrcodeButton">Share Spy Master Key</button>
+    </div>
+
+    <div id="grid-container" class="grid-container">
+        <!-- Items will be inserted here -->
+    </div>
+    <!-- <div class="button-container">
+        <button class="button button-red" style="background-color: #be1200;">Red Button</button>
+        <button class="button button-black" style="background-color: black;color: #f5f5f5;">Black Button</button>
+        <button class="button button-blue" style="background-color: #0000be; color: #f5f5f5;">Blue Button</button>
+    </div> -->
+
+<!-- TIMER and Scoreboard -->
+<div class="status-container">
+    <div id="redCountDisplay">Red Cards Remaining: <br><span id="redCount">0</span></div>
+    
+    <!-- TIMER -->
+    <div class="timer-container">
+        <button id="startTimerButton">
+            ⌛
+        </button>
+        <p id="timer">01:00</p>
+    </div>
+    <!-- End of Timer -->
+
+    <div id="blueCountDisplay">Blue Cards Remaining: <br><span id="blueCount">0</span></div>
+</div>
+<!-- End of Scoreboard -->
+
+
+
+    <!-- Win/ Lose Modal -->
+    <div class="modalparent">
+        <div id="gameOverModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close" id="modalCloseSpan">&times;</span>
+                    <h2>Game Over</h2>
+                </div>
+                <div class="modal-body">
+                    <p id="gameOverMessage"></p>
+                </div>
+                <div class="modal-footer">
+                    <button id="modalCloseButton" class="button button-blue">Main Menu</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of winning/lose modal -->
+
+
+    <footer>
+        <p>Created by <a href="https://miketsak.gr" target="_blank">MikeTsak</a></p>
+    </footer>
+    <script src="js/images.js"></script>
+</body>
+</html>

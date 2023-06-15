@@ -3,7 +3,7 @@ hash = hash.split('-');
 player(hash[2]);
 const colors = Array(8).fill('Red').concat(Array(8).fill('Blue'), Array(7).fill('Bystander'), 'Black',hash[2]);
 
-const random = getRandomSequenceWithSeed(hash[3], colors.length);
+const random = getRandomSequenceWithSeed(hash[3], 75);
 for (let i = colors.length - 1; i > 0; i--) {
     const j = Math.floor(random[i] * (i + 1));
     [colors[i], colors[j]] = [colors[j], colors[i]];

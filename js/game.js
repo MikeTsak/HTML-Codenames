@@ -354,7 +354,7 @@ function formatTime(time) {
 
 const shareButton = document.getElementById('shareButton');
 shareButton.addEventListener('click', () => {
-    let link = 'https://miketsak.gr/projects/spy/solution.html#' + window.location.hash;
+    let link = 'https://miketsak.gr/projects/spy/solution.html' + window.location.hash;
     if (navigator.share) {
       navigator.share({
         title: 'Codename Game Key',

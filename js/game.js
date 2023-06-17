@@ -209,7 +209,7 @@ if (type === 1) {
                 item.appendChild(img);
             
                 container.appendChild(item);
-                console.log(data[randomIndex]);
+                // console.log(data[randomIndex]);
     
                 if(colors[i] === 'Red') redCount++;
                 if(colors[i] === 'Blue') blueCount++;

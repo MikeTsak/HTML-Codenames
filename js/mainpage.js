@@ -6,8 +6,8 @@ document.getElementById('play-button').addEventListener('click', () => {
     const selectedPack = document.getElementById('pack-select').value;
     //make a random number
 
-    const email = document.getElementById('email').value;
-    if (validateEmail(email)) {
+    // const email = document.getElementById('email').value;
+    // if (validateEmail(email)) {
         const playButton = document.getElementById('play-button');
         playButton.innerHTML = '<div class="loading-spinner"></div>'; // Show loading spinner
         playButton.disabled = true; // Disable the button
@@ -25,12 +25,13 @@ document.getElementById('play-button').addEventListener('click', () => {
         }
 
         const gameid =  selectedPack + '-' + randomboard + '-' + firstplayer + '-' + randomkey
-        sendEmail(email, gameid,colors);
+        window.location.href = 'game.html#' + gameid;
+        // sendEmail(email, gameid,colors);
 }
-    else {
-        alert('Please enter a valid email address');
-    }
-});
+    // else {
+    //     alert('Please enter a valid email address');
+    // }}
+);
 // Get the pack name from localStorage
 const packName = localStorage.getItem('selectedPack');
 

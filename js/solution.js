@@ -116,59 +116,34 @@ if(type === 1){
                     j++;
                 }
                 usedIndices.add(randomIndex);
-                
+    
                 // Create an img element and append it to the item
                 const img = document.createElement('img');
                 img.src = data[randomIndex];
                 img.className = 'grid-img';
                 item.appendChild(img);
-            
-                container.appendChild(item);
-                console.log(data[randomIndex]);
-            }
     
-            container.addEventListener('click', event => {
-                if(event.target.classList.contains('grid-item')) {
-                    if (event.target.dataset.clicked) {
-                        return;
-                    }
-                    event.target.dataset.clicked = true;
-                    new Audio('sound/blip-131856.mp3').play();
-                    const color = item.dataset.color;
-    
-                    // Get the img element inside the item
-    
-                    switch(color) {
-                        case 'Red':
-                            img.src = 'img/red.png';
-                            redCount--;
-                            event.target.style.backgroundColor = '#be1200';
-                            redCountElement.textContent = redCount; 
-                            break;
-                        case 'Blue':
-                            img.src = 'img/blue.png';
-                            blueCount--;
-                            event.target.style.backgroundColor = '#0000be';
-                            blueCountElement.textContent = blueCount;
-                            break;
-                        case 'Bystander':
-                            img.src = 'img/bystander.png';
-                            event.target.style.backgroundColor = '#bdb5b5';
-                            break;
-                        case 'Black':
-                            img.src = 'img/black.png';
-                            gameOverMessageEl.textContent = 'Game over!';
-                            event.target.style.backgroundColor = '#bdb5b5';
-                            modal.style.display = "block";
-                            new Audio('sound/gameover-153314.mp3').play();
-                            return;
-                    }
-                    container.appendChild(item);
+                const color = item.dataset.color;
+                switch(color) {
+                    case 'Red':
+                        item.style.backgroundColor = '#be1200';
+                        break;
+                    case 'Blue':
+                        item.style.backgroundColor = '#0000be';
+                        break;
+                    case 'Bystander':
+                        item.style.backgroundColor = '#bdb5b5';
+                        break;
+                    case 'Black':
+                        item.style.backgroundColor = 'black';
+                        break;
                 }
-            });
-        });
     
+                container.appendChild(item);
+            }
+        });
     });
+    
     
 }
 

@@ -60,6 +60,8 @@ let chechPack = () => {
     return [1,'https://raw.githubusercontent.com/MikeTsak/HTML-Codenames/main/packs/disney.json']}
     else if(fragment === '#i6')
     return [2,'https://raw.githubusercontent.com/MikeTsak/HTML-Codenames/main/packs/idisney.json']
+    else if(fragment === '#i4')
+    return [2,'https://raw.githubusercontent.com/MikeTsak/HTML-Codenames/main/packs/istarwars.json']
     
 }
 

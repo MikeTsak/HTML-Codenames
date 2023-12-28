@@ -56,6 +56,9 @@ footer {
     text-align: center;
     padding: 10px;
     background-color: #FFC8A2;
+    clear: both; /* Clears any floating elements */
+    height: auto; /* Adjusts height automatically */
+    padding: 15px; /* Increase padding for better spacing */
 }
 
 footer a {
@@ -100,6 +103,7 @@ input[type="email"] {
 
   .content-container {
     position: relative;
+    padding-bottom: 60px;
 }
 
 .instructions-button {
@@ -122,4 +126,29 @@ input[type="email"] {
     background-color: #C2005D;
 }
 
+/* Responsive design adjustments */
+@media (max-width: 768px) { /* Adjusts for tablets and mobile devices */
+    body {
+        padding: 10px; /* Reduce padding on smaller screens */
+    }
 
+    .main-container, footer {
+        width: 100%; /* Ensure full width on small screens */
+        padding: 15px; /* Adjust padding for better spacing */
+    }
+
+    #logo {
+        max-width: 200px; /* Smaller logo for smaller screens */
+    }
+
+    .button, input[type="email"] {
+        font-size: 1em; /* Adjust font size for better readability */
+    }
+
+    .instructions-button {
+        font-size: 0.9em; /* Smaller font size for button */
+        padding: 8px 15px; /* Adjust padding */
+    }
+
+    /* Add any other responsive adjustments here */
+}
